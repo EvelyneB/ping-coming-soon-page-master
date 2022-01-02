@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400;600&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Libre+Franklin:ital,wght@0,300;0,700;1,600&family=Manrope:wght@500;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,400&family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+
+$color-white: white;
+$color-grey :hsl(0, 0%, 59%);
+$color-blue :hsl(223, 87%, 63%);
+$color-pale-blue : hsl(223, 100%, 88%);
+$color-light-red : hsl(354, 100%, 66%);
+$color-very-dark-blue :hsl(209, 33%, 12%);
+$font-base : "Libre Franklin", sans-serif;
+
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    text-align: center; 
+    align-items: center;
+    flex-direction: ($direction);
+}
+
+@mixin inputBox{
+    border-radius: 10rem;
+    display: block;
+    width: 100%;
+    height: 3rem;
+}
+
+@mixin maxWidth{
+    max-width: 100%;
+    height: auto;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font-base;
+}
+
+body{
+    background:$color-white ;
+    min-height: 100vh;
+}
+
+.logo-container,
+.h1,
+.h2,
+.input-container,
+.blue-button,
+.notify,
+.social-media,
+.copyright
+{
+    @include flexCenter(row);
+}
+
+.container{
+    background: $color-white;
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 1rem;
+    max-width: 100%;
+}
+
+.logo-container{
+    padding-bottom: 3rem;
+}
+
+.h1{
+    display: block;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.h1 span{
+    color: $color-grey;
+    font-family: $font-base;
+    font-weight: 300;
+} 
+
+.h2{
+    font-weight: 300;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+}
+
+.email,
+.notify{
+    @include inputBox;
+}
+
+.blue-button,
+.input-container{
+    padding: .5rem 2rem;
+    :focus { 
+        outline: 0; 
+      } 
+}
+.email{
+    border: 1px solid $color-pale-blue;
+    text-align: left;
+    padding: 1rem 2rem;
+
+    &:focus{
+        border: 1px solid $color-blue;
+    }
+}
+
+.input::placeholder{
+    padding: 1rem 2rem;
+}
+
+.red-border{
+    border: 1px solid $color-light-red
+}
+
+.notify{
+    color: $color-white;
+    background :$color-blue;
+    border: none;
+    font-weight: 300;
+    font-size: 1rem;
+    box-shadow: 0px 9px 10px 0px #969696;
+    cursor: pointer;
+}
+
+.blue-button{
+    @include flexCenter(row);
+    padding-bottom: 4rem;
+
+    &:hover{
+        opacity: .80;
+    }
+}
+  
+.error{
+    position: relative;
+    display: none;
+    padding-left: 3rem;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: $color-light-red;
+    font-style: italic;
+}
+
+.error.err{
+    display: block;
+    
+}
+
+.image{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+// ------------------------FOOTER-------------------------
+
+.social-media{
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+
+    a .fab{
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px $color-blue; 
+    color: $color-blue;
+    }
+    
+.fa-facebook-f {
+    padding: .6rem .80rem;
+  }
+  
+  .fa-twitter {
+    padding: .6rem .6rem;
+    margin-right:1rem ;
+    margin-left: 1rem;
+  }
+  
+  .fa-instagram {
+    padding: .6rem .65rem;
+  }
+
+.copyright{
+    color: $color-grey;
+}}
+
+
+
+// ----------------------MEDIA QUERY ---------------
+
+
+@media (min-width: 860px) {
+
+.container{
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+.h1{
+    font-size: 2rem;
+}
+
+.buttons,
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.input-container,
+.email{
+    align-items: flex-start;
+    justify-content: center;
+    width: 33rem;
+}
+
+.blue-button,
+.notify{
+    width: 20rem;
+}
+
+.image{
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+    .error{
+    position: absolute;
+    top: 4rem;
+    left: 0rem;
+    width: 20rem;
+}}
+
